@@ -25,6 +25,26 @@ public class OperandStackTest {
 	@Test
 	public void stackWithOnePushedElementShouldContainIt() {
 		operandStack.push(BigDecimal.ONE);
-		assertThat(operandStack.peek(),equalTo(BigDecimal.ONE)); 
+		assertThat(operandStack.peek(), equalTo(BigDecimal.ONE));
+	}
+
+	@Test
+	public void stackShouldReturnZeroWhenElementWasPushedAndPoped() {
+		operandStack.push(BigDecimal.TEN);
+		operandStack.pop();
+		assertThat(operandStack.peek(), equalTo(BigDecimal.ZERO));
+	}
+
+	@Test
+	public void shouldNotThrowExceptionWhenPopIsInvokedOnEmptyStack() {
+		operandStack.pop();
+		assertThat(operandStack.peek(), equalTo(BigDecimal.ZERO));
+	}
+
+	@Test
+	public void shouldReturnValueOnTheTop() {
+		BigDecimal value = new BigDecimal(19);
+		operandStack.top(value);
+		assertThat(operandStack.peek(), equalTo(value));
 	}
 }
