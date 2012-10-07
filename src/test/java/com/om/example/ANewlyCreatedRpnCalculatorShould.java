@@ -27,5 +27,9 @@ public class ANewlyCreatedRpnCalculatorShould {
 		rpnCalculator.setAccumulator(value);
 		assertEquals(value, rpnCalculator.getAccumulator());
 	}
-
+	
+	@Test
+	public void NotThrowExceptionWhenDropIsCalled() {
+		this.rpnCalculator.drop();		
+	}
 }

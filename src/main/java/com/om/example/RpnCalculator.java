@@ -26,7 +26,8 @@ public class RpnCalculator {
 	}	
 	
 	public void drop() {
-		this.values.pop();
+		if (this.values.size() > 0) 
+			this.values.pop();
 	}
 	
 	public Stack<BigDecimal> getStack() {
