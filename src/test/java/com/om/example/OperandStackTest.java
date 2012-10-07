@@ -42,7 +42,7 @@ public class OperandStackTest {
 	}
 
 	@Test
-	public void shouldReturnValueOnTheTop() {
+	public void valuePutOnTheTopShouldBeReturned() {
 		BigDecimal value = new BigDecimal(19);
 		operandStack.top(value);
 		assertThat(operandStack.peek(), equalTo(value));

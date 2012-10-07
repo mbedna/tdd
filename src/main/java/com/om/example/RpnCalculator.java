@@ -4,33 +4,22 @@ import java.math.BigDecimal;
 import java.util.Stack;
 
 public class RpnCalculator {
-	
-	private Stack<BigDecimal> values = new Stack<BigDecimal>();
+
+	private OperandStack values = new OperandStack();
 
 	public BigDecimal getAccumulator() {
-		if (this.values.size() > 0) 
-			return values.peek();  
-		else
-			return BigDecimal.ZERO; 
+		return values.peek();
 	}
 
 	public void setAccumulator(BigDecimal value) {
-		if (this.values.size() > 0) {
-			this.values.pop();
-		}
-		this.values.push(value);
+		values.top(value);
 	}
 
 	public void enter() {
-		this.values.push(getAccumulator());
-	}	
-	
-	public void drop() {
-		if (this.values.size() > 0) 
-			this.values.pop();
+		values.push(getAccumulator());
 	}
-	
-	public Stack<BigDecimal> getStack() {
-		return  this.values;
+
+	public void drop() {
+		values.pop();
 	}
 }

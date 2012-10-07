@@ -14,20 +14,18 @@ public class OperandStack {
 			return BigDecimal.ZERO;
 		}
 	}
-	
+
 	public void push(BigDecimal value) {
 		values.push(value);
 	}
-	
+
 	public void pop() {
 		if (!values.empty())
 			values.pop();
 	}
-	
+
 	public void top(BigDecimal value) {
 		pop();
 		push(value);
 	}
 }
-
-
