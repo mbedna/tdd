@@ -14,6 +14,5 @@ public class HardwiredBusinessLogicTest {
 		when(mock.getGreeting()).thenReturn(expected);
 		String actual = mock.getGreeting();
 		assertThat(actual, is(expected));
-		System.out.println("dupsko"); 
 	} 
 }
