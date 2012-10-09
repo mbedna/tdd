@@ -22,4 +22,19 @@ public class RpnCalculator {
 	public void drop() {
 		values.pop();
 	}
+	
+	public void add() {
+		BigDecimal value1 = values.peek();
+		values.pop();
+		BigDecimal value2 = values.peek();
+		values.top(value1.add(value2));
+	} 	
+
+	public void substract() {
+		BigDecimal value1 = values.peek();
+		values.pop();
+		BigDecimal value2 = values.peek();
+		values.top(value2.subtract(value1));
+	} 	
+	
 }
