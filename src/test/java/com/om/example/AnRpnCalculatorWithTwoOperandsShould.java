@@ -33,5 +33,4 @@ public class AnRpnCalculatorWithTwoOperandsShould {
 		BigDecimal value = new BigDecimal(-1);
 		assertThat(this.rpnCalculator.getAccumulator(), equalTo(value));
 	}	
-
 }
