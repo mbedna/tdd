@@ -20,7 +20,7 @@ public class FactorialTest {
 	@Test
 	public void factorialForZeroShouldBeOne() {
 		this.rpnCalculator.setAccumulator(BigDecimal.ZERO);
-		this.rpnCalculator.factorial();
+		this.rpnCalculator.execute("!");
 		assertThat(BigDecimal.ONE, equalTo(this.rpnCalculator.getAccumulator()));
 	}
 
@@ -28,7 +28,7 @@ public class FactorialTest {
 	public void factorialFor5ShouldBe120() {
 		BigDecimal value = new BigDecimal(5);
 		this.rpnCalculator.setAccumulator(value);
-		this.rpnCalculator.factorial();
+		this.rpnCalculator.execute("!");
 		BigDecimal result = new BigDecimal(120);
 		assertThat(result, equalTo(this.rpnCalculator.getAccumulator()));
 	}

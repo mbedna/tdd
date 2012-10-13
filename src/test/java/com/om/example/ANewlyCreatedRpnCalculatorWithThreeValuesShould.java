@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 public class ANewlyCreatedRpnCalculatorWithThreeValuesShould {
 	
 	private RpnCalculator rpnCalculator;
-	private	BigDecimal value1= new BigDecimal(42);
+	private	BigDecimal value1 = new BigDecimal(42);
 	private	BigDecimal value2 = new BigDecimal(2);
 	private	BigDecimal value3 = new BigDecimal(3);
 

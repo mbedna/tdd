@@ -22,14 +22,14 @@ public class AnRpnCalculatorWithTwoOperandsShould {
 	
 	@Test
 	public void returnSumWhenTheyAreAdded() {
-		this.rpnCalculator.add();
+		this.rpnCalculator.execute("+");
 		BigDecimal value = new BigDecimal(7);
 		assertThat(this.rpnCalculator.getAccumulator(), equalTo(value));
 	}	
 
 	@Test
 	public void returnSubstractionWhenTheyAreSubstracted() {
-		this.rpnCalculator.substract();
+		this.rpnCalculator.execute("-");
 		BigDecimal value = new BigDecimal(-1);
 		assertThat(this.rpnCalculator.getAccumulator(), equalTo(value));
 	}	
