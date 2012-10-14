@@ -26,14 +26,16 @@ public class RpnCalculator {
 		BigDecimal value1 = values.peek();
 		values.pop();
 		BigDecimal value2 = values.peek();
-		values.top(value1.add(value2));
+		BigDecimal result = value1.add(value2);
+		values.top(result);
 	}
 
 	private void substract() {
 		BigDecimal value1 = values.peek();
 		values.pop();
 		BigDecimal value2 = values.peek();
-		values.top(value2.subtract(value1));
+		BigDecimal result = value2.subtract(value1);
+		values.top(result);
 	}
 
 	private void factorial() {
