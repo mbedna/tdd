@@ -22,41 +22,17 @@ public class RpnCalculator {
 		values.pop();
 	}
 
-	private void add() {
-		BigDecimal value1 = values.peek();
-		values.pop();
-		BigDecimal value2 = values.peek();
-		BigDecimal result = value1.add(value2);
-		values.top(result);
-	}
-
-	private void substract() {
-		BigDecimal value1 = values.peek();
-		values.pop();
-		BigDecimal value2 = values.peek();
-		BigDecimal result = value2.subtract(value1);
-		values.top(result);
-	}
-
-	private void factorial() {
-		BigDecimal value = this.values.peek();
-		BigDecimal result = BigDecimal.ONE;
-		while (value.compareTo(BigDecimal.ZERO) > 0) {
-			result = result.multiply(value);	
-			value = value.subtract(BigDecimal.ONE);
-		}	
-		this.values.top(result);
-	}
-	
 	public void execute(String operatorName) {
+		MathOperator op = null;
 		if (operatorName.equals("+")) {
-			this.add();
+			op = new Add(values);
 		} else if (operatorName.equals("-")) {
-			this.substract();
+			op = new Substract(values);
 		} else if (operatorName.equals("!")) {
-			this.factorial();
+			op = new Factorial(values);
 		} else {
 			throw new UnsupportedOperationException();
 		}
+		op.execute();
 	}
 }
