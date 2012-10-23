@@ -4,15 +4,15 @@ public class BinaryOperatorFactory {
 	public void create(String operatorName, OperandStack values) {
 		MathOperator op = null;
 		if (operatorName.equals("+")) {
-			op = new Add(values);
+			op = new Add();
 		} else if (operatorName.equals("-")) {
-			op = new Substract(values);
+			op = new Substract();
 		} else if (operatorName.equals("*")) {
-			op = new Multiply(values);
+			op = new Multiply();
 		} else if (operatorName.equals("!")) {
-			op = new Factorial(values);
+			op = new Factorial();
 		} else if (operatorName.equals("/")) {
-			op = new Divide(values);
+			op = new Divide();
 		} else {
 			throw new UnsupportedOperationException();
 		}

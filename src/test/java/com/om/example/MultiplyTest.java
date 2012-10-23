@@ -13,7 +13,7 @@ public class MultiplyTest {
 		OperandStack operandStack = new OperandStack();
 		operandStack.push(new BigDecimal(4));
 		operandStack.push(new BigDecimal(6));
-		Multiply multiply = new Multiply(operandStack);
+		Multiply multiply = new Multiply();
 		multiply.execute(operandStack);
 		assertThat(operandStack.peek(), equalTo(new BigDecimal(24)));
 	}	

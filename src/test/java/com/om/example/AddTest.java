@@ -18,7 +18,7 @@ public class AddTest {
 	@Before
 	public void init() {
 		operandStack = new OperandStack();
-		add = new Add(operandStack);
+		add = new Add();
 		value = new BigDecimal(11);
 		operandStack.push(value);
 		value2 = new BigDecimal(5);

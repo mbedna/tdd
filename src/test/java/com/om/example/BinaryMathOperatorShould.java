@@ -19,7 +19,7 @@ public class BinaryMathOperatorShould {
 	@Before
 	public void init() {
 		operandStack = spy(new OperandStack());
-		binaryMathOperator = spy(new BinaryMathOperator(operandStack) {
+		binaryMathOperator = spy(new BinaryMathOperator() {
 			public BigDecimal operation(BigDecimal value1, BigDecimal value2) {
 				BigDecimal result = value1.add(value2);
 				return result;

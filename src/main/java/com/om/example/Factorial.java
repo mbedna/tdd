@@ -6,10 +6,6 @@ public class Factorial implements MathOperator {
 
 	private OperandStack values;
 
-	public Factorial(OperandStack operandStack) {
-		values = operandStack;
-	}
-
 	@Override
 	public void execute(OperandStack operandStack) {
 		this.values = operandStack;
@@ -21,5 +17,4 @@ public class Factorial implements MathOperator {
 		}	
 		this.values.top(result);
 	}
-	
 }

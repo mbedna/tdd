@@ -13,7 +13,7 @@ public class DivideTest {
 		OperandStack operandStack = new OperandStack();
 		operandStack.push(new BigDecimal(24));
 		operandStack.push(new BigDecimal(6));
-		Divide divide = new Divide(operandStack);
+		Divide divide = new Divide();
 		divide.execute(operandStack);
 		assertThat(operandStack.peek(), equalTo(new BigDecimal(4)));
 	}	

@@ -6,10 +6,6 @@ public abstract class BinaryMathOperator implements MathOperator {
 
 	private OperandStack values;
 	
-	public BinaryMathOperator(OperandStack operandStack) {
-		this.values = operandStack;
-	}
-
 	@Override	
 	public void execute(OperandStack operandStack) {
 		this.values = operandStack; 
