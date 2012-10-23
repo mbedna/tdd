@@ -1,21 +1,24 @@
 package com.om.example;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class BinaryOperatorFactory {
-	public void create(String operatorName, OperandStack values) {
-		MathOperator op = null;
-		if (operatorName.equals("+")) {
-			op = new Add();
-		} else if (operatorName.equals("-")) {
-			op = new Substract();
-		} else if (operatorName.equals("*")) {
-			op = new Multiply();
-		} else if (operatorName.equals("!")) {
-			op = new Factorial();
-		} else if (operatorName.equals("/")) {
-			op = new Divide();
-		} else {
+
+	private Map<String, MathOperator> operators = new HashMap<String, MathOperator>(); 
+
+	public BinaryOperatorFactory() {
+		this.operators.put("+", new Add());
+		this.operators.put("-", new Substract());
+		this.operators.put("*", new Multiply());
+		this.operators.put("/", new Divide());
+		this.operators.put("!", new Factorial());
+	}
+	public MathOperator create(String operatorName) {
+		MathOperator op = this.operators.get(operatorName);
+		if (op == null) {
 			throw new UnsupportedOperationException();
 		}
-		op.execute(values);
+		return op;
 	}
 }

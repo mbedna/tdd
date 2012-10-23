@@ -23,6 +23,7 @@ public class RpnCalculator {
 	}
 
 	public void execute(String operatorName) {
-		new BinaryOperatorFactory().create(operatorName, this.values);
+		MathOperator mathOperator = new BinaryOperatorFactory().create(operatorName);
+		mathOperator.execute(values);
 	}
 }
