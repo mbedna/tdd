@@ -16,6 +16,6 @@ public class BinaryOperatorFactory {
 		} else {
 			throw new UnsupportedOperationException();
 		}
-		op.execute();
+		op.execute(values);
 	}
 }

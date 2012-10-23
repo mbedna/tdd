@@ -14,7 +14,7 @@ public class MultiplyTest {
 		operandStack.push(new BigDecimal(4));
 		operandStack.push(new BigDecimal(6));
 		Multiply multiply = new Multiply(operandStack);
-		multiply.execute();
+		multiply.execute(operandStack);
 		assertThat(operandStack.peek(), equalTo(new BigDecimal(24)));
 	}	
 }

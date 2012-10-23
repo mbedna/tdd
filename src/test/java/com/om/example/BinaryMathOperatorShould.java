@@ -29,14 +29,14 @@ public class BinaryMathOperatorShould {
 
 	@Test
 	public void getTwoValuesFromStack() {
-		binaryMathOperator.execute();	
+		binaryMathOperator.execute(operandStack);	
 		verify(operandStack, times(2)).peek();
 		verify(operandStack, times(2)).pop();
 	}
 
 	@Test
 	public void invokeOperation() {
-		binaryMathOperator.execute();
+		binaryMathOperator.execute(operandStack);
 		verify(binaryMathOperator).operation((BigDecimal) any(), (BigDecimal) any());
 	}
 
@@ -44,7 +44,7 @@ public class BinaryMathOperatorShould {
 	public void checkThatResultIsOnTopOfTheStack() {
 		operandStack.push(new BigDecimal(10));
 		operandStack.push(new BigDecimal(11));
-		binaryMathOperator.execute();
+		binaryMathOperator.execute(operandStack);
 		assertThat(operandStack.peek(), equalTo(new BigDecimal(21)));	
 	}
 }

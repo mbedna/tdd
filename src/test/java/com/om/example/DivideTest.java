@@ -14,7 +14,7 @@ public class DivideTest {
 		operandStack.push(new BigDecimal(24));
 		operandStack.push(new BigDecimal(6));
 		Divide divide = new Divide(operandStack);
-		divide.execute();
+		divide.execute(operandStack);
 		assertThat(operandStack.peek(), equalTo(new BigDecimal(4)));
 	}	
 }

@@ -10,7 +10,7 @@ import org.junit.Test;
 
 public class AddTest {
 
-	private MathOperator add;
+	private Add add;
 	private BigDecimal value;
 	private BigDecimal value2;
 	private OperandStack operandStack;
@@ -27,7 +27,7 @@ public class AddTest {
 
 	@Test
 	public void checkAddition() {
-		add.execute();
+		add.execute(operandStack);
 		assertThat(operandStack.peek(), equalTo(new BigDecimal(16)));
 	}
 }

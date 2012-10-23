@@ -11,7 +11,8 @@ public class Factorial implements MathOperator {
 	}
 
 	@Override
-	public void execute() {
+	public void execute(OperandStack operandStack) {
+		this.values = operandStack;
 		BigDecimal value = this.values.peek();
 		BigDecimal result = BigDecimal.ONE;
 		while (value.compareTo(BigDecimal.ZERO) > 0) {
@@ -20,4 +21,5 @@ public class Factorial implements MathOperator {
 		}	
 		this.values.top(result);
 	}
+	
 }

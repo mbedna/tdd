@@ -1,5 +1,5 @@
 package com.om.example;
 
 public interface MathOperator {
-	public void execute();
+	public void execute(OperandStack operandStack);
 }
