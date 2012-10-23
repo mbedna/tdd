@@ -7,22 +7,22 @@ public class RpnCalculator {
 	private OperandStack values = new OperandStack();
 
 	public BigDecimal getAccumulator() {
-		return values.peek();
+		return this.values.peek();
 	}
 
 	public void setAccumulator(BigDecimal value) {
-		values.top(value);
+		this.values.top(value);
 	}
 
 	public void enter() {
-		values.push(getAccumulator());
+		this.values.push(getAccumulator());
 	}
 
 	public void drop() {
-		values.pop();
+		this.values.pop();
 	}
 
 	public void execute(String operatorName) {
-		BinaryOperatorFactory.create(operatorName, values);
+		new BinaryOperatorFactory().create(operatorName, this.values);
 	}
 }
