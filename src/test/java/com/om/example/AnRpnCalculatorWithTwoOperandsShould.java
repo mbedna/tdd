@@ -33,4 +33,11 @@ public class AnRpnCalculatorWithTwoOperandsShould {
 		BigDecimal value = new BigDecimal(-1);
 		assertThat(this.rpnCalculator.getAccumulator(), equalTo(value));
 	}	
+
+	@Test
+	public void returnProductWhenTheyAreMultiplied() {
+		this.rpnCalculator.execute("*");
+		BigDecimal result = new BigDecimal(12);
+		assertThat(this.rpnCalculator.getAccumulator(), equalTo(result));
+	}	
 }

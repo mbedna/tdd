@@ -2,20 +2,14 @@ package com.om.example;
 
 import java.math.BigDecimal;
 
-public class Substract implements MathOperator {
-
-	private OperandStack values;
+public class Substract extends BinaryMathOperator {
 
 	public Substract(OperandStack operandStack) {
-		values = operandStack;
+		super(operandStack);
 	}
 
 	@Override
-	public void execute() {
-		BigDecimal value1 = values.peek();
-		values.pop();
-		BigDecimal value2 = values.peek();
-		BigDecimal result = value2.subtract(value1);
-		values.top(result);
+	public BigDecimal operation(BigDecimal value1, BigDecimal value2) {
+		return value2.subtract(value1);
 	}
 }
