@@ -1,47 +1,62 @@
 package com.om.example;
 
-import java.math.BigDecimal;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.greaterThan;
+import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.spy;
+
+import java.util.HashMap;
 
 import org.junit.Before;
 import org.junit.Test;
-
 public class BinaryOperatorFactoryTest {
-
-	private RpnCalculator rpnCalculator;
+	
+	private BinaryOperatorFactory binaryOperatorFactory;
 
 	@Before
 	public void init() {
-		rpnCalculator = new RpnCalculator();
+		binaryOperatorFactory = new BinaryOperatorFactory();
 	}
 
 	@Test
+	public void shouldBeAbleToaddNewOperators() {
+		assertThat(binaryOperatorFactory.operators.size(), greaterThan(0));
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void shouldThrowExceptionWhenTryingToAddSameOperator() {
+		binaryOperatorFactory.operators = new HashMap<String, MathOperator>();
+		binaryOperatorFactory.addOperator("+", new Add());
+		binaryOperatorFactory.addOperator("+", new Substract());
+	}
+	
+	@Test
 	public void shouldHaveAPossibilityToRegisterAddOperator() {
-		rpnCalculator.execute("+");	
+		binaryOperatorFactory.create("+");
 	}
 
 	@Test
 	public void shouldHaveAPossibilityToRegisterMinusOperator() {
-		rpnCalculator.execute("-");	
+		binaryOperatorFactory.create("-");
 	}
 		
 	@Test
 	public void shouldHaveAPossibilityToRegisterFactorialOperator() {
-		rpnCalculator.execute("!");	
+		binaryOperatorFactory.create("!");
 	}
 
 	@Test
 	public void shouldHaveAPossibilityToRegisterMultiplyOperator() {
-		rpnCalculator.execute("*");	
+		binaryOperatorFactory.create("*");
 	}
 
 	@Test
 	public void shouldHaveAPossibilityToRegisterDivideOperator() {
-		rpnCalculator.setAccumulator(BigDecimal.ONE);
-		rpnCalculator.execute("/");	
+		binaryOperatorFactory.create("/");
 	}
 		
 	@Test(expected = UnsupportedOperationException.class)
 	public void shouldThrowExceptionWhenNotRegisteredOperatorUsed() {
-		rpnCalculator.execute("not registered operator");	
+		binaryOperatorFactory.create("not registered operator");
 	}
 }

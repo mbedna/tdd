@@ -5,19 +5,25 @@ import java.util.Map;
 
 public class BinaryOperatorFactory implements OperatorFactory {
 
-	private Map<String, MathOperator> operators;
+	Map<String, MathOperator> operators;
 
 	public BinaryOperatorFactory() {
 		this.operators = new HashMap<String, MathOperator>(); 
 		this.registerOperators();
 	}
 			
-	private void registerOperators() {
-		this.operators.put("+", new Add());
-		this.operators.put("-", new Substract());
-		this.operators.put("*", new Multiply());
-		this.operators.put("/", new Divide());
-		this.operators.put("!", new Factorial());
+	void registerOperators() {
+		this.addOperator("+", new Add());
+		this.addOperator("-", new Substract());
+		this.addOperator("*", new Multiply());
+		this.addOperator("/", new Divide());
+		this.addOperator("!", new Factorial());
+	}
+	
+	void addOperator(String operator, MathOperator mathOperator) {
+		if (this.operators.containsKey(operator)) 
+			throw new IllegalArgumentException(); 
+		this.operators.put(operator, mathOperator);				
 	}
 
 	public MathOperator create(String operatorName) {
