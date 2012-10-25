@@ -9,11 +9,11 @@ import org.junit.Before;
 import org.junit.Test;
 public class BinaryOperatorFactoryTest {
 	
-	private BinaryOperatorFactory binaryOperatorFactory;
+	private BinaryOperatorFactoryImpl binaryOperatorFactory;
 
 	@Before
 	public void init() {
-		binaryOperatorFactory = new BinaryOperatorFactory();
+		binaryOperatorFactory = new BinaryOperatorFactoryImpl();
 	}
 
 	@Test

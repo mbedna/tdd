@@ -8,7 +8,7 @@ public class RpnCalculator {
 	private OperandStack values = new OperandStack();
 
 	public RpnCalculator() {
-		binaryOperatorFactory = new BinaryOperatorFactory();
+		binaryOperatorFactory = new BinaryOperatorFactoryImpl();
 	}
 
 	public BigDecimal getAccumulator() {
