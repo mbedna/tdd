@@ -47,4 +47,15 @@ public class OperandStackTest {
 		operandStack.top(value);
 		assertThat(operandStack.peek(), equalTo(value));
 	}
+	
+	@Test
+	public void stackWithNoElementsShouldBeEmpty() {
+		assertThat(operandStack.isEmpty(), equalTo(true));
+	}
+
+	@Test
+	public void stackWithAtLeastOneElementShouldNotBeEmpty() {
+		operandStack.push(BigDecimal.ZERO);
+		assertThat(operandStack.isEmpty(), equalTo(false));
+	}
 }

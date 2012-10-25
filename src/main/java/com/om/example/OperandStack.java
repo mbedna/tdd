@@ -28,4 +28,8 @@ public class OperandStack {
 		pop();
 		push(value);
 	}
+	
+	public boolean isEmpty() {
+		return this.values.isEmpty();
+	}
 }
