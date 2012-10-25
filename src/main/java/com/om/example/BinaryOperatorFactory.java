@@ -12,7 +12,7 @@ public class BinaryOperatorFactory implements OperatorFactory {
 		this.registerOperators();
 	}
 			
-	void registerOperators() {
+	private void registerOperators() {
 		this.addOperator("+", new Add());
 		this.addOperator("-", new Substract());
 		this.addOperator("*", new Multiply());

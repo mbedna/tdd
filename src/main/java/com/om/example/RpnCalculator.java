@@ -4,7 +4,12 @@ import java.math.BigDecimal;
 
 public class RpnCalculator {
 
+	private	OperatorFactory binaryOperatorFactory;
 	private OperandStack values = new OperandStack();
+
+	public RpnCalculator() {
+		binaryOperatorFactory = new BinaryOperatorFactory();
+	}
 
 	public BigDecimal getAccumulator() {
 		return this.values.peek();
@@ -23,7 +28,7 @@ public class RpnCalculator {
 	}
 
 	public void execute(String operatorName) {
-		MathOperator mathOperator = new BinaryOperatorFactory().create(operatorName);
+		MathOperator mathOperator = binaryOperatorFactory.create(operatorName);
 		mathOperator.execute(values);
 	}
 }

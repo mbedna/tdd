@@ -1,9 +1,7 @@
 package com.om.example;
 
-import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.junit.Assert.assertThat;
-import static org.mockito.Mockito.spy;
 
 import java.util.HashMap;
 
