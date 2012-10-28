@@ -58,4 +58,13 @@ public class OperandStackTest {
 		operandStack.push(BigDecimal.ZERO);
 		assertThat(operandStack.size(), equalTo(1));
 	}
+	
+	@Test
+	public void checkToStringMethod() {
+		operandStack.push(BigDecimal.ZERO);
+		operandStack.push(new BigDecimal(17));
+		operandStack.push(new BigDecimal(23));
+		String s = operandStack.toString();
+		assertThat(s, equalTo("[0, 17, 23]"));
+	}
 }

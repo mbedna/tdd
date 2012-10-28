@@ -32,4 +32,9 @@ public class OperandStack {
 	public int size() {
 		return this.values.size();
 	}
+	
+	@Override
+	public String toString() {
+		return this.values.toString();
+	}
 }
