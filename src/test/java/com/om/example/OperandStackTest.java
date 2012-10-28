@@ -50,12 +50,12 @@ public class OperandStackTest {
 	
 	@Test
 	public void stackWithNoElementsShouldBeEmpty() {
-		assertThat(operandStack.isEmpty(), equalTo(true));
+		assertThat(operandStack.size(), equalTo(0));
 	}
 
 	@Test
 	public void stackWithAtLeastOneElementShouldNotBeEmpty() {
 		operandStack.push(BigDecimal.ZERO);
-		assertThat(operandStack.isEmpty(), equalTo(false));
+		assertThat(operandStack.size(), equalTo(1));
 	}
 }

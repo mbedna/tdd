@@ -29,7 +29,7 @@ public class OperandStack {
 		push(value);
 	}
 	
-	public boolean isEmpty() {
-		return this.values.isEmpty();
+	public int size() {
+		return this.values.size();
 	}
 }
