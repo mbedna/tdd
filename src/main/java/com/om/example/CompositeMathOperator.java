@@ -16,7 +16,9 @@ public class CompositeMathOperator implements MathOperator {
 	@Override
 	public void execute(OperandStack operandStack) {
 		for(int i = 0; i < mathOperators.size(); i++) {
-			mathOperators.get(i).execute(operandStack);
+			MathOperator mathOperator = mathOperators.get(i);
+			System.out.println( mathOperator);
+			mathOperator.execute(operandStack);
 		}	
 	}
 	

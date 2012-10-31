@@ -9,9 +9,9 @@ public class BinaryOperatorFactoryImpl implements OperatorFactory {
 
 	public BinaryOperatorFactoryImpl() {
 		this.operators = new HashMap<String, MathOperator>(); 
-		this.registerOperators();
+		registerOperators();
 	}
-			
+	
 	private void registerOperators() {
 		this.addOperator("+", new Add());
 		this.addOperator("-", new Substract());
@@ -21,7 +21,7 @@ public class BinaryOperatorFactoryImpl implements OperatorFactory {
 		this.addOperator("primefactors", new PrimeFactors());
 	}
 	
-	void addOperator(String operator, MathOperator mathOperator) {
+	public void addOperator(String operator, MathOperator mathOperator) {
 		if (this.operators.containsKey(operator)) 
 			throw new IllegalArgumentException(); 
 		this.operators.put(operator, mathOperator);				
