@@ -52,6 +52,11 @@ public class BinaryOperatorFactoryTest {
 	public void shouldHaveAPossibilityToRegisterDivideOperator() {
 		binaryOperatorFactory.create("/");
 	}
+
+	@Test
+	public void shouldHaveAPossibilityToRegisterPrimeFactorsOperator() {
+		binaryOperatorFactory.create("primefactors");
+	}
 		
 	@Test(expected = UnsupportedOperationException.class)
 	public void shouldThrowExceptionWhenNotRegisteredOperatorUsed() {

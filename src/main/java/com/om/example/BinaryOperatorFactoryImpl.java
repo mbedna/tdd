@@ -18,6 +18,7 @@ public class BinaryOperatorFactoryImpl implements OperatorFactory {
 		this.addOperator("*", new Multiply());
 		this.addOperator("/", new Divide());
 		this.addOperator("!", new Factorial());
+		this.addOperator("primefactors", new PrimeFactors());
 	}
 	
 	void addOperator(String operator, MathOperator mathOperator) {
