@@ -3,7 +3,7 @@ package com.om.example;
 import java.math.BigDecimal;
 
 import org.junit.Test;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
 public class DivideTest {
