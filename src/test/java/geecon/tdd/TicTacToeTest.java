@@ -1,7 +1,6 @@
 package geecon.tdd;
 
 import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
@@ -24,32 +23,6 @@ public class TicTacToeTest {
 		y = new Object();
 	}
 	
-	@Test
-	public void checkThatNumberOfMovesIncreases() {
-		moves();
-		assertEquals(MIN_NUMBER_OF_MOVES, numberOfMoves);
-	}
-
-	@Test
-	public void checkWhetherXIsAWinner() {
-		moves();
-		Object winner = getWinner(x);
-		assertEquals(x, winner);
-	}
-
-	@Test
-	public void checkWhetherYIsAWinner() {
-		moves();
-		Object winner = getWinner(y);
-		assertEquals(y, winner);
-	}
-
-	@Test(expected = RuntimeException.class)
-	public void whenThereIsLessThan5movesThenThereIsNoWinner() {
-		move(x, CROSS);
-		getWinner(null);
-	}
-
 	private void moves() {
 		move(x, CROSS);
 		move(y, CROSS);
@@ -57,7 +30,7 @@ public class TicTacToeTest {
 		move(y, CROSS);
 		move(x, CROSS);
 	}
-	
+
 	private void move(Object player, char character) {
 		if (player.equals(x)) {
 			xmoves[numberOfMoves] = character;	
@@ -69,6 +42,33 @@ public class TicTacToeTest {
 		numberOfMoves++;
 	}
 
+	@Test
+	public void checkThatNumberOfMovesIncreases() {
+		moves();
+		assertThat(MIN_NUMBER_OF_MOVES, equalTo(numberOfMoves));
+	}
+
+	@Test
+	public void checkWhetherXIsAWinner() {
+		moves();
+		Object winner = getWinner(x);
+		assertThat(x, equalTo(winner));
+	}
+
+	@Test
+	public void checkWhetherYIsAWinner() {
+		moves();
+		Object winner = getWinner(y);
+		assertThat(y, equalTo(winner));
+	}
+
+	@Test(expected = RuntimeException.class)
+	public void whenThereIsLessThan5movesThenThereIsNoWinner() {
+		move(x, CROSS);
+		getWinner(null);
+	}
+
+	
 	private Object getWinner(Object o) {
 		if (numberOfMoves >= MIN_NUMBER_OF_MOVES) {
 			return o;
