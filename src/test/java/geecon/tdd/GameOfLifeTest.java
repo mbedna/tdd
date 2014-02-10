@@ -6,6 +6,9 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Set;
+import java.util.HashSet;
+
 public class GameOfLifeTest {
     
     //Rules
@@ -54,8 +57,24 @@ public class GameOfLifeTest {
     public void should_not_be_possible_to_have_2_cells_with_same_position() {
         Cell cell1 = new Cell(0, 5);
         Cell cell2 = new Cell(0, 5);
+        Board board = new Board();
+        board.add(cell1);
+        board.add(cell2);
+        System.out.println(board.size());
+    }
+    
+    private static class Board {  
+        private Set set = new HashSet();        
         
         
+        public void add(Cell cell) {
+            if (set.contains(cell)) throw new IllegalArgumentException();
+            set.add(cell);
+        }
+
+        public int size() {
+            return set.size();
+        }
     }
 }
 
